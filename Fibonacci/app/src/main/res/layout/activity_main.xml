@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/btnGenerate"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:fontFamily="@font/anton"
+        android:text="@string/fibonacci_series"
+        android:textAlignment="center"
+        android:textSize="34sp" />
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="324dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/enter_the_a_number"
+        android:inputType="text"
+        android:textColorHint="#3E3E3E"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="@string/generate"
+        android:textSize="20sp" />
+</LinearLayout>

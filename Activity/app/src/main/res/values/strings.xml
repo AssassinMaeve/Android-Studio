@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name" translatable="false">Activity</string>
+    <string name="you_are_now_in_the_second_activity" translatable="false">You are now in the Second Activity</string>
+</resources>
