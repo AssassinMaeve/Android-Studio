@@ -38,6 +38,9 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
                     // code missing here
+                    Intent intent = new Intent(MainActivity.this, OTPActivity.class);
+                    intent.putExtra("mobnum",txtnum.getText().toString());
+                    startActivity(intent);
 
                 }
             }).setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
