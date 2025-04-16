@@ -15,6 +15,8 @@
         style="@style/Widget.AppCompat.ImageButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="55dp"
+        android:layout_marginRight="55dp"
         android:onClick="handleButton"
         app:srcCompat="@android:drawable/ic_media_play" />
 
@@ -23,6 +25,9 @@
         style="@style/Widget.AppCompat.ImageButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="55dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="55dp"
         android:onClick="handleButton"
         app:srcCompat="@android:drawable/btn_dialog" />
 
