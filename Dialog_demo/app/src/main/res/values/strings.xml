@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Dialog_demo</string>
+    <string name="dialog_demo">Dialog Demo</string>
+    <string name="choose_date">Choose Date</string>
+    <string name="choose_time">Choose Time</string>
+    <string name="add_alarm">Add Alarm</string>
+</resources>
