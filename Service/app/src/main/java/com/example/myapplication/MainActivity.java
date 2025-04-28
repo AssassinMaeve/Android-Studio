@@ -6,9 +6,6 @@ import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 import android.view.View;
 
 import com.example.myapplication.Service.MyMusicService;
@@ -18,23 +15,26 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_main);
+        EdgeToEdge.enable(this); // Enables edge-to-edge display for the activity
+        setContentView(R.layout.activity_main); // Set the UI layout for this activity
     }
 
-        // Method to handle button clicks (must be public void with View parameter)
-        public void handleButton(View v) {
-            Intent intent = new Intent(this, MyMusicService.class);
+    // Method to handle button clicks (play and stop buttons)
+    // Note: Button's onClick property in XML should be linked to this method
+    public void handleButton(View v) {
+        // Create an Intent to start or stop the MyMusicService
+        Intent intent = new Intent(this, MyMusicService.class);
 
-            if (v.getId() == R.id.btnPlay) {
-                Toast.makeText(this, "Play", Toast.LENGTH_SHORT).show();
-                startService(intent);
-            }
-            else if (v.getId() == R.id.btnStop) {
-                Toast.makeText(this, "Stop", Toast.LENGTH_SHORT).show();
-                stopService(intent);
-
-            }
-
+        // Check which button was clicked using its ID
+        if (v.getId() == R.id.btnPlay) {
+            // If Play button is clicked
+            Toast.makeText(this, "Play", Toast.LENGTH_SHORT).show(); // Show a small "Play" message
+            startService(intent); // Start the music service
+        }
+        else if (v.getId() == R.id.btnStop) {
+            // If Stop button is clicked
+            Toast.makeText(this, "Stop", Toast.LENGTH_SHORT).show(); // Show a small "Stop" message
+            stopService(intent); // Stop the music service
         }
     }
+}
