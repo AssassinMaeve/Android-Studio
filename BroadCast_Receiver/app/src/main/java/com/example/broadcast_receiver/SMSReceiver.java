@@ -12,28 +12,32 @@ import java.util.regex.Pattern;
 
 public class SMSReceiver extends BroadcastReceiver {
 
+    // This method is called automatically when an SMS is received
     @Override
     public void onReceive(Context context, Intent intent) {
-        // TODO: This method is called when the BroadcastReceiver is receiving
-        // an Intent broadcast.
-
-        Toast.makeText(context, "You have received an SMS", Toast.LENGTH_SHORT).show();
+        // Get the extras (additional data) from the received intent
         Bundle bundle = intent.getExtras();
-        if(bundle != null){
-            Object[] sms = (Object[]) bundle.get("pdus");
-            for(int i = 0 ; i < sms.length ; i++){
-                SmsMessage msg = SmsMessage.createFromPdu((byte[]) sms[i]);
-                Toast.makeText(context, "Message is"+msg.getDisplayMessageBody()+" "+msg.getOriginatingAddress(), Toast.LENGTH_SHORT).show();
-                String message = msg.getMessageBody();
-                Pattern pattern = Pattern.compile("(\\b\\d{5}\\b)");
-                Matcher matcher = pattern.matcher(message);
-                int OTP = 0;
-                if(matcher.find()){
-                    OTP = Integer.parseInt(matcher.group(1));
+
+        if (bundle != null) {
+            // Retrieve the PDUs (Protocol Data Units) from the bundle
+            Object[] pdus = (Object[]) bundle.get("pdus");
+
+            // Loop through all PDUs to process each SMS message
+            for (Object pdu : pdus) {
+                // Create an SmsMessage object from the raw PDU byte array
+                SmsMessage sms = SmsMessage.createFromPdu((byte[]) pdu);
+
+                // Get the text content of the SMS
+                String msg = sms.getMessageBody();
+
+                // Use regular expression to find a 5-digit OTP in the message
+                Matcher m = Pattern.compile("\\b\\d{5}\\b").matcher(msg);
+
+                // If an OTP is found and the OTP EditText is available
+                if (m.find() && OTPActivity.txtotp != null) {
+                    // Automatically set the extracted OTP into the EditText field
+                    OTPActivity.txtotp.setText(m.group(0));
                 }
-                // Toast.makeText(context, "OTP is", Toast.LENGTH_SHORT).show();
-                OTPActivity otpact = new OTPActivity();
-                otpact.putOTP(OTP);
             }
         }
     }

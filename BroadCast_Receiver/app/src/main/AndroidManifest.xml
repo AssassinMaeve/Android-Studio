@@ -2,13 +2,25 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+
+    <!-- Declare that this app uses telephony features (calling, SMS, etc.) -->
     <uses-feature
         android:name="android.hardware.telephony"
         android:required="true" />
+    <!--
+        android:required="true" means the app **will not install** on devices
+        that do not have telephony hardware (e.g., Wi-Fi only tablets).
+    -->
 
+    <!-- Permission to send SMS messages -->
     <uses-permission android:name="android.permission.SEND_SMS" />
+
+    <!-- Permission to receive incoming SMS messages -->
     <uses-permission android:name="android.permission.RECEIVE_SMS" />
+
+    <!-- Permission to read SMS messages (for auto-reading OTPs from the inbox) -->
     <uses-permission android:name="android.permission.READ_SMS" />
+
 
 
     <application
