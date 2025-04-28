@@ -37,23 +37,19 @@ The repository will include a variety of Android development topics such as:
 ✅ **Basic Android UI Development** (Layouts, Buttons, TextViews)  
 ✅ **Activity Lifecycle & Intents**  
 ✅ **RecyclerView & ListView**  
-✅ **SQLite & Room Database Integration**  
-✅ **Firebase Authentication & Firestore Database**  
-✅ **Networking with Retrofit & REST APIs**  
-✅ **Jetpack Components & MVVM Architecture**  
-✅ **Multimedia Handling (Audio & Video)**  
-✅ **Sensors & Location Services**  
+✅ **Broadcast Receivers**  
+✅ **Menu & Dialog Box**  
+✅ **Fragments & Services**  
+✅ **Shared Preference**  
+✅ **Storing Data in Internal Storage**  
 
 ---
 
 ### **🛠️ Technologies & Tools Used**  
 - **Android Studio** (IDE for development)  
-- **Kotlin / Java** (Programming languages)  
+- **Kotlin / Java** (Programming languages used but in this we use only Java)  
 - **XML** (UI Design)  
-- **Gradle** (Build system)  
-- **Firebase** (For authentication & database)  
-- **Retrofit** (For API handling)  
-- **Room Database** (For local data storage)  
+- **Gradle** (Build system)      
 
 ---
 
