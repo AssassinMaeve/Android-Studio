@@ -8,9 +8,13 @@ import android.widget.Toast;
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.io.BufferedReader;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.nio.Buffer;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -24,6 +28,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         editText = findViewById(R.id.editText);
+
+
 
     }
 
@@ -43,7 +49,34 @@ public class MainActivity extends AppCompatActivity {
             try{
                 fos.close();
             } catch (IOException e){
-                e.printStackTrace();;
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public void loadData(View view){
+        FileInputStream fis = null;
+        try{
+            fis = openFileInput(FILE_NAME);
+            InputStreamReader isr = new InputStreamReader(fis);
+            BufferedReader br = new BufferedReader(isr);
+            StringBuilder sb = new StringBuilder();
+            String text;
+            while ((text = br.readLine())!= null){
+                sb.append(text).append("\n");
+            }
+        editText.setText(sb.toString());
+        } catch (FileNotFoundException e){
+            e.printStackTrace();
+        } catch (IOException e){
+            e.printStackTrace();
+        } finally {
+            if(fis != null){
+                try{
+                    fis.close();
+                } catch (IOException e){
+                    e.printStackTrace();
+                }
             }
         }
     }
